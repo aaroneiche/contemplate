@@ -1,0 +1,54 @@
+body {
+  background-color: rgba(255,255,255,255);
+  /*height: 100%;
+  width: 100%;*/
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-family: Vera;
+}
+
+@font-face { font-family: Vera; src: url('Vera.ttf'); }
+
+#question {
+  text-align: center;
+  width: 50%;
+  margin: 0 auto 10%;
+
+  font-size: 48pt;
+  opacity: 0;
+
+  transition-duration: 1s;
+  transition-property: "opacity";
+}
+
+#answer {
+  width: 50%;
+
+  margin: 0 auto;
+  display: block;
+
+  border: none;
+  text-align: center;
+  outline: none;
+  height: 30%;
+  font-size: 20pt;
+
+  resize: none;
+
+  color: inherit;
+  background-color: inherit;
+}
+
+
+
+
+.dark {
+  color: green;
+  background-color: #000000;
+}
+
+.light{
+  color: #000000;
+  background-color: #ffffff;
+}

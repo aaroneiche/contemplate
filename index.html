@@ -1,0 +1,40 @@
+<html>
+  <head>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+
+    <script>
+      questions = [
+        "What went well this week?",
+        "What would you like to improve on?",
+        "What's the most important thing on your mind right now?"
+      ]
+      currentQ = 0;
+
+      function nextQuestion(){
+        $("#question").css("opacity",0);
+        id = setTimeout(function(){
+          $("#question").html(questions[currentQ])
+          .css("opacity",1);
+
+        },1000);
+      }
+
+      $(document).ready(function(){
+        $("#question").html(questions[0]).css("opacity",1);
+      })
+
+      $(document).bind('keypress', function(event) {
+          if( event.which === 13 && event.shiftKey ) {
+            currentQ++;
+            nextQuestion();
+          }
+      });
+
+    </script>
+  </head>
+  <body id="main" class="dark">
+    <div id="question"></div>
+    <textarea id="answer" placeholder=""></textarea>
+  </body>
+</html>
