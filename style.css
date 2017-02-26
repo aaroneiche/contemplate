@@ -41,6 +41,9 @@ body {
 
   color: inherit;
   background-color: inherit;
+
+  transition-duration: 1s;
+  transition-property: "opacity";
 }
 
 

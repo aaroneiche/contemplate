@@ -23,20 +23,27 @@
       }
 
       function saveResponse(){
-        answers = JSON.parse(localStorage.getItem("answers"));
-        t = new Date();
-        if(typeof answers[t.getFullYear() + "-" + (t.getMonth() + 1) + "-" + t.getDate()] == "undefined"){
-          answers[t.getFullYear() + "-" + (t.getMonth() + 1) + "-" + t.getDate()] = []
-        }
 
-        answers[t.getFullYear() + "-" + (t.getMonth() + 1) + "-" + t.getDate()].push(
-          {
-            "question":questions[currentQ],
-            "response":$("#answer").val()
+        $("#answer").css("opacity",0);
+        setTimeout(function(){
+
+          answers = JSON.parse(localStorage.getItem("answers"));
+          t = new Date();
+          if(typeof answers[t.getFullYear() + "-" + (t.getMonth() + 1) + "-" + t.getDate()] == "undefined"){
+            answers[t.getFullYear() + "-" + (t.getMonth() + 1) + "-" + t.getDate()] = []
           }
-        );
 
-        localStorage.setItem("answers",JSON.stringify(answers));
+          answers[t.getFullYear() + "-" + (t.getMonth() + 1) + "-" + t.getDate()].push(
+            {
+              "question":questions[currentQ],
+              "response":$("#answer").val()
+            }
+          );
+
+          localStorage.setItem("answers",JSON.stringify(answers));
+
+          $("#answer").val("").css("opacity",1);
+        }, 1000)
       }
 
       $(document).ready(function(){
@@ -50,7 +57,6 @@
           if( event.which === 13 && event.shiftKey ) {
             saveResponse();
             currentQ++;
-            $("#answer").val("");
             nextQuestion();
           }
       });
