@@ -16,17 +16,41 @@
         id = setTimeout(function(){
           $("#question").html(questions[currentQ])
           .css("opacity",1);
-
+          setTimeout(function(){
+              $("#answer").focus();
+          },1000);
         },1000);
       }
 
+      function saveResponse(){
+        answers = JSON.parse(localStorage.getItem("answers"));
+        t = new Date();
+        if(typeof answers[t.getFullYear() + "-" + (t.getMonth() + 1) + "-" + t.getDate()] == "undefined"){
+          answers[t.getFullYear() + "-" + (t.getMonth() + 1) + "-" + t.getDate()] = []
+        }
+
+        answers[t.getFullYear() + "-" + (t.getMonth() + 1) + "-" + t.getDate()].push(
+          {
+            "question":questions[currentQ],
+            "response":$("#answer").val()
+          }
+        );
+
+        localStorage.setItem("answers",JSON.stringify(answers));
+      }
+
       $(document).ready(function(){
-        $("#question").html(questions[0]).css("opacity",1);
+        if(!localStorage.getItem("answers")){
+          localStorage.setItem("answers",JSON.stringify({}));
+        }
+        nextQuestion();
       })
 
       $(document).bind('keypress', function(event) {
           if( event.which === 13 && event.shiftKey ) {
+            saveResponse();
             currentQ++;
+            $("#answer").val("");
             nextQuestion();
           }
       });

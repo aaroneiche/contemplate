@@ -8,7 +8,10 @@ body {
   font-family: Vera;
 }
 
-@font-face { font-family: Vera; src: url('Vera.ttf'); }
+@font-face {
+  font-family: Vera;
+  src: url(Vera.ttf);
+}
 
 #question {
   text-align: center;
