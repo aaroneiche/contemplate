@@ -4,11 +4,6 @@
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 
     <script>
-      questions = [
-        "What went well this week?",
-        "What would you like to improve on?",
-        "What's the most important thing on your mind right now?"
-      ]
       currentQ = 0;
 
       function nextQuestion(){
@@ -47,6 +42,17 @@
       }
 
       $(document).ready(function(){
+
+        if(!localStorage.getItem("questions")){
+          localStorage.setItem("questions",JSON.stringify([
+              "What went well this week?",
+              "What would you like to improve on?",
+              "What's the most important thing on your mind right now?"]
+          ));
+        }
+
+        questions = JSON.parse(localStorage.getItem("questions"));
+
         if(!localStorage.getItem("answers")){
           localStorage.setItem("answers",JSON.stringify({}));
         }
