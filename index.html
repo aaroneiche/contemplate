@@ -22,7 +22,7 @@
         },1000);
       }
 
-      function saveResponse(){
+      function saveResponse(question,response){
 
         $("#answer").css("opacity",0);
         setTimeout(function(){
@@ -35,8 +35,8 @@
 
           answers[t.getFullYear() + "-" + (t.getMonth() + 1) + "-" + t.getDate()].push(
             {
-              "question":questions[currentQ],
-              "response":$("#answer").val()
+              "question":question,
+              "response":response
             }
           );
 
@@ -55,7 +55,7 @@
 
       $(document).bind('keypress', function(event) {
           if( event.which === 13 && event.shiftKey ) {
-            saveResponse();
+            saveResponse(questions[currentQ],$("#answer").val());
             currentQ++;
             nextQuestion();
           }
