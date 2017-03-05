@@ -25,6 +25,11 @@ body {
   transition-property: "opacity";
 }
 
+#texttop {
+  width: 100%;
+  height: 1.875em;
+}
+
 #answer {
   width: 50%;
 
@@ -35,7 +40,7 @@ body {
   text-align: center;
   outline: none;
   height: 30%;
-  font-size: 20pt;
+  font-size: 1.875em;
 
   resize: none;
 
@@ -44,6 +49,15 @@ body {
 
   transition-duration: 1s;
   transition-property: "opacity";
+
+  -webkit-mask-position: 0 0;
+  -webkit-mask-size: 20px 100%;
+  -webkit-mask-image: -webkit-gradient(
+  linear, left top, right bottom,
+   color-stop(0.00,  rgba(0,0,0,0)),
+   color-stop(0.20,  rgba(0,0,0,1)),
+   color-stop(0.80,  rgba(0,0,0,1)),
+   color-stop(1.00,  rgba(0,0,0,0)));
 }
 
 
