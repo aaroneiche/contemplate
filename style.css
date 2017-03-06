@@ -42,6 +42,8 @@ body {
   height: 30%;
   font-size: 1.875em;
 
+  vertical-align: middle;
+
   resize: none;
 
   color: inherit;
@@ -50,14 +52,14 @@ body {
   transition-duration: 1s;
   transition-property: "opacity";
 
-  -webkit-mask-position: 0 0;
+  /*-webkit-mask-position: 0 0;
   -webkit-mask-size: 20px 100%;
   -webkit-mask-image: -webkit-gradient(
   linear, left top, right bottom,
    color-stop(0.00,  rgba(0,0,0,0)),
    color-stop(0.20,  rgba(0,0,0,1)),
    color-stop(0.80,  rgba(0,0,0,1)),
-   color-stop(1.00,  rgba(0,0,0,0)));
+   color-stop(1.00,  rgba(0,0,0,0)));*/
 }
 
 
